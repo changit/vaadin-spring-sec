@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+    <display-name>Vaadin Web Application</display-name>
+    <context-param>
+        <description>Vaadin production mode</description>
+        <param-name>productionMode</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/spring-sec.xml
+            /WEB-INF/app-context.xml
+        </param-value>
+
+    </context-param>
+    
+    <servlet>
+    	<servlet-name>login</servlet-name>
+    	<jsp-file>/jsp/login.jsp</jsp-file>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>login_error</servlet-name>
+    	<jsp-file>/jsp/login_error.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+    	<servlet-name>login</servlet-name>
+    	<url-pattern>/jsp/login</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+    	<servlet-name>login_error</servlet-name>
+    	<url-pattern>/jsp/login_error</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Vaadin Application Servlet</servlet-name>
+        <servlet-class>kws.vaadin.MyVaadinApplication</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Vaadin Application Servlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <filter>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>
