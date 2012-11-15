@@ -13,14 +13,22 @@
 	</http>
 
 	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="jimi" password="a" authorities="ROLE_USER, ROLE_ADMIN" />
-				<user name="bob" password="b" authorities="ROLE_USER" />
-			</user-service>
-		</authentication-provider>
+<!-- 		<authentication-provider> -->
+<!-- 			<user-service> -->
+<!-- 				<user name="jimi" password="a" authorities="ROLE_USER, ROLE_ADMIN" /> -->
+<!-- 				<user name="bob" password="b" authorities="ROLE_USER" /> -->
+<!-- 			</user-service> -->
+<!-- 		</authentication-provider> -->
+		<authentication-provider user-service-ref="customUserDetailsService">
+       		<password-encoder ref="passwordEncoder"/>
+        </authentication-provider>
 	</authentication-manager>
 
+	<!-- Use a Md5 encoder since the user's passwords are stored as Md5 in the database -->
+	<beans:bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" id="passwordEncoder"/>
+
+	<!-- A custom service where Spring will retrieve users and their corresponding access levels  -->
+	<beans:bean id="customUserDetailsService" class="kws.vaadin.service.CustomUserDetailsService"/>
 
 	<global-method-security pre-post-annotations="enabled" />
 
