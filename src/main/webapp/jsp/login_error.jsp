@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Login error</title>
 </head>
 <body>
 	<H1 align="center">Access Denied</H1>
-	<div align="center"left"><a href="<c:url value="login"/>" > login </a></div>
+	<div align="center"><a href="<c:url value="login"/>" > login </a></div>
 </body>
 </html>

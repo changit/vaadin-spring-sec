@@ -112,8 +112,21 @@
 			<version>3.0.0.RELEASE</version>
 		</dependency>
 
+<!-- 		<dependency> -->
+<!-- 			<groupId>jstl</groupId> -->
+<!-- 			<artifactId>jstl</artifactId> -->
+<!-- 			<version>1.1.2</version> -->
+<!-- 		</dependency> -->
+
 		<dependency>
-			<groupId>jstl</groupId>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+	
+		<!-- JSTL  -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.1.2</version>
 		</dependency>

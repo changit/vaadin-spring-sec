@@ -1,0 +1,11 @@
+# Eclipse
+.metadata
+
+# Java
+target/
+.classpath
+.project
+.settings/
+
+# *nix
+*~
